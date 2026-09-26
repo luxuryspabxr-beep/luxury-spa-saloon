@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A1A"/>
+      <stop offset="100%" style="stop-color:#2D2D2D"/>
+    </linearGradient>
+    <linearGradient id="goldOg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C9A86C"/>
+      <stop offset="100%" style="stop-color:#DDB892"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+  <circle cx="600" cy="315" r="180" fill="none" stroke="url(#goldOg)" stroke-width="3" opacity="0.3"/>
+  <circle cx="600" cy="315" r="120" fill="none" stroke="url(#goldOg)" stroke-width="4" opacity="0.5"/>
+  <circle cx="600" cy="315" r="60" fill="url(#goldOg)" opacity="0.8"/>
+  <text x="600" y="450" font-family="Georgia, serif" font-size="48" font-weight="600" fill="#FFFFFF" text-anchor="middle">Aura Wellness Spa</text>
+  <text x="600" y="510" font-family="Inter, sans-serif" font-size="24" fill="#DDB892" text-anchor="middle">Spa & Wellness in Buxar, Bihar</text>
+  <text x="600" y="560" font-family="Inter, sans-serif" font-size="18" fill="#999999" text-anchor="middle">Book on WhatsApp • Relax • Rejuvenate</text>
+</svg>
