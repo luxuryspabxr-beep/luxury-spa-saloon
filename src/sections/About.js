@@ -30,7 +30,7 @@ export function createAboutSection() {
           </div>
         </div>
         <div class="about-image fade-in">
-          <img src="${businessConfig.about.image}" alt="Aura Wellness Spa interior" loading="lazy" width="600" height="500">
+          <img src="${businessConfig.about.image}" alt="Luxury Spa & Saloon interior" loading="lazy" width="600" height="500">
         </div>
       </div>
     </div>

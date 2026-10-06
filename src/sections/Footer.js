@@ -19,15 +19,15 @@ export function createFooterSection() {
       <div class="footer-grid">
         <div class="footer-brand fade-in">
           <a href="#hero" class="footer-logo" aria-label="${businessConfig.name} - Home">
-            <span class="logo-icon">${getIcon('logo')}</span>
+            <img src="/assets/images/Logo.png" alt="${businessConfig.name}" class="footer-logo-image">
             <span class="logo-text">${businessConfig.name}</span>
           </a>
           <p class="footer-description">${businessConfig.description}</p>
           <div class="footer-social">
-            <a href="${businessConfig.instagram}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+            <a href="${businessConfig.instagram}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Luxury Spa & Saloon on Instagram">
               ${getIcon('instagram')}
             </a>
-            <a href="${businessConfig.facebook}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+            <a href="${businessConfig.facebook}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Luxury Spa & Saloon on Facebook">
               ${getIcon('facebook')}
             </a>
           </div>
@@ -51,10 +51,9 @@ export function createFooterSection() {
             </div>
             <div class="footer-contact-item">
               ${getIcon('phone')}
-              <a href="tel:${businessConfig.phone.replace(/\s/g, '')}" class="footer-link">${businessConfig.phone}</a>
+              <a href="tel:${businessConfig.callPhone.replace(/\s/g, '')}" class="footer-link">${businessConfig.callPhone}</a>
             </div>
             <div class="footer-contact-item">
-              ${getIcon('whatsapp')}
               ${whatsappBtn.outerHTML}
             </div>
             <div class="footer-contact-item">
@@ -74,7 +73,7 @@ export function createFooterSection() {
           </ul>
         </nav>
         <p class="footer-copyright">${businessConfig.footer.copyright}</p>
-        <p class="footer-demo-notice">Demo website for demonstration purposes only.</p>
+        <p class="footer-demo-notice">Designed & Developed by <a href="https://www.swiftgrowthdigital.com/" target="_blank" rel="noopener noreferrer">SwiftGrowthDigital.com</a></p>
       </div>
     </div>
   `;

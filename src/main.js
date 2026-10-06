@@ -49,8 +49,10 @@ function initSEO() {
     description: businessConfig.description,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Hanuman Nagar, Bypass Road, Near New Bus Stand, Jaso',
       addressLocality: 'Buxar',
       addressRegion: 'Bihar',
+      postalCode: '802101',
       addressCountry: 'IN'
     },
     telephone: businessConfig.phone,

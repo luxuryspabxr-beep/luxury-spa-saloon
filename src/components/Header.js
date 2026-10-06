@@ -8,7 +8,7 @@ export function createHeader() {
   header.innerHTML = `
     <div class="header-container container">
       <a href="#hero" class="header-logo" aria-label="${businessConfig.name} - Home">
-        <span class="logo-icon">${getIcon('logo')}</span>
+        <img src="/assets/images/Logo.png" alt="${businessConfig.name}" class="header-logo-image">
         <span class="logo-text">${businessConfig.name}</span>
       </a>
       

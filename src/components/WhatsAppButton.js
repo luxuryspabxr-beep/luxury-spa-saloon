@@ -43,7 +43,7 @@ export function createStickyCTA() {
       ${getIcon('whatsapp')}
       <span>WhatsApp</span>
     </a>
-    <a href="tel:${businessConfig.phone.replace(/\s/g, '')}" class="sticky-cta-btn sticky-cta-btn--call" aria-label="Call us">
+    <a href="tel:${businessConfig.callPhone.replace(/\s/g, '')}" class="sticky-cta-btn sticky-cta-btn--call" aria-label="Call us">
       ${getIcon('phone')}
       <span>Call</span>
     </a>

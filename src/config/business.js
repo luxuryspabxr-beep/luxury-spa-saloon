@@ -1,21 +1,22 @@
 export const businessConfig = {
-  name: "Aura Wellness Spa",
+  name: "Luxury Spa & Saloon",
   tagline: "Relax. Rejuvenate. Feel Your Best.",
-  description: "Experience professional spa and wellness services in a calm, comfortable and relaxing environment.",
+  description: "Luxury Spa & Saloon is a premium local wellness and beauty destination in Buxar, Bihar, offering a relaxing environment and professional spa and saloon services.",
   location: "Buxar, Bihar",
-  address: "Aura Wellness Spa, Buxar, Bihar, India",
-  phone: "+91 9229721835",
-  whatsapp: "919229721835",
-  whatsappMessage: "Hi, I would like to book an appointment at Aura Wellness Spa.\n\nService: ______\nPreferred Date: ______\nPreferred Time: ______",
-  hours: "10:00 AM – 9:00 PM",
-  email: "hello@aurawellnessspa.com",
-  instagram: "https://instagram.com/aurawellnessspa",
-  facebook: "https://facebook.com/aurawellnessspa",
-  googleMaps: "https://maps.google.com/?q=Aura+Wellness+Spa+Buxar+Bihar",
+  address: "Hanuman Nagar, Bypass Road, Near New Bus Stand, Jaso, Buxar, Bihar – 802101",
+  phone: "+91 9942467567",
+  callPhone: "+91 9942469609",
+  whatsapp: "919942467567",
+  whatsappMessage: "Hi Luxury Spa & Saloon, I would like to book an appointment.\n\nService: ______\nPreferred Date: ______\nPreferred Time: ______",
+  hours: "11:00 AM – 9:00 PM",
+  email: "hello@luxuryspasaloon.com",
+  instagram: "https://www.instagram.com/luxuryspabuxar/",
+  facebook: "https://www.facebook.com/profile.php?id=61595120671040",
+  googleMaps: "https://maps.google.com/?q=Hanuman+Nagar+Bypass+Road+Near+New+Bus+Stand+Jaso+Buxar+Bihar+802101",
   coordinates: { lat: 25.5625, lng: 83.9745 },
   seo: {
-    title: "Aura Wellness Spa | Spa & Wellness in Buxar",
-    description: "Discover relaxing spa and wellness services in Buxar. View services, explore our space and book your appointment on WhatsApp.",
+    title: "Luxury Spa & Saloon | Spa & Saloon in Buxar, Bihar",
+    description: "Luxury Spa & Saloon - premium spa and saloon services in Buxar, Bihar. Experience professional wellness and beauty treatments. Book your appointment on WhatsApp.",
     ogImage: "/assets/images/og-image.jpg"
   },
   trustBadges: [
@@ -110,7 +111,7 @@ export const businessConfig = {
       title: "Spa Entrance",
       image: "/assets/images/gallery/spa img 1.png",
       thumb: "/assets/images/gallery/spa img 1.png",
-      alt: "Aura Wellness Spa entrance"
+      alt: "Luxury Spa & Saloon entrance"
     },
     {
       id: "reception",
@@ -184,11 +185,11 @@ export const businessConfig = {
   ],
   about: {
     title: "A Space Designed for Relaxation",
-    description: "Aura Wellness Spa is a local wellness destination focused on creating a calm and comfortable environment where guests can take a break from their busy routine. Our team is dedicated to providing personalized care in a peaceful setting.",
+    description: "Luxury Spa & Saloon is a local wellness destination focused on creating a calm and comfortable environment where guests can take a break from their busy routine. Our team is dedicated to providing personalized care in a peaceful setting.",
     image: "/assets/images/gallery/spa img 1.png",
     infoCards: [
       { label: "Location", value: "Buxar, Bihar" },
-      { label: "Hours", value: "10:00 AM – 9:00 PM" },
+      { label: "Hours", value: "11:00 AM – 9:00 PM" },
       { label: "Appointments", value: "WhatsApp / Phone" }
     ]
   },
@@ -211,7 +212,7 @@ export const businessConfig = {
     {
       id: "faq-4",
       question: "What are your opening hours?",
-      answer: "10:00 AM – 9:00 PM in this demo."
+      answer: "11:00 AM – 9:00 PM."
     }
   ],
   footer: {
@@ -227,7 +228,7 @@ export const businessConfig = {
       { label: "Terms", href: "#terms" },
       { label: "Cancellation Policy", href: "#cancellation" }
     ],
-    copyright: "© 2026 Aura Wellness Spa. All rights reserved."
+    copyright: "© 2026 Luxury Spa & Saloon. All rights reserved."
   }
 };
 

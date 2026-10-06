@@ -43,7 +43,17 @@ export function createHeroSection() {
           </div>
         </div>
         <div class="hero-image fade-in">
-          <img src="/assets/images/gallery/spa img 1.png" alt="Aura Wellness Spa - Relaxing spa environment" loading="eager" width="600" height="700">
+          <video
+            src="/assets/Video/video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            class="hero-video"
+            width="600"
+            height="700"
+            aria-label="Luxury Spa & Saloon - Relaxing spa environment"
+          ></video>
         </div>
       </div>
     </div>

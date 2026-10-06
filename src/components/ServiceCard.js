@@ -1,6 +1,5 @@
 import { getIcon, createIcon } from './Icon.js';
 import { createWhatsAppButton } from './WhatsAppButton.js';
-import { formatPrice } from '../utils/helpers.js';
 
 export function createServiceCard(service) {
   const card = document.createElement('article');
@@ -25,7 +24,6 @@ export function createServiceCard(service) {
       <h3 class="service-card-title">${service.name}</h3>
       <p class="service-card-description">${service.description}</p>
       <div class="service-card-meta">
-        <span class="service-card-price">${formatPrice(service.price)}</span>
         <span class="service-card-duration">${getIcon('clock')} ${service.duration}</span>
       </div>
     </div>

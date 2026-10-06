@@ -16,16 +16,18 @@ export function createLocationSection() {
   });
   
   const callBtn = document.createElement('a');
-  callBtn.href = `tel:${businessConfig.phone.replace(/\s/g, '')}`;
+  callBtn.href = `tel:${businessConfig.callPhone.replace(/\s/g, '')}`;
   callBtn.className = 'btn btn-secondary location-btn';
   callBtn.innerHTML = `${getIcon('phone')} Call`;
   
   const mapBtn = document.createElement('a');
-  mapBtn.href = businessConfig.googleMaps;
+  mapBtn.href = 'https://www.google.com/maps/search/?api=1&query=Luxury%20Spa%20%26%20Saloon%2C%20Hanuman%20Nagar%2C%20Bypass%20Road%2C%20Near%20New%20Bus%20Stand%2C%20Jaso%2C%20Buxar%2C%20Bihar%20802101';
   mapBtn.target = '_blank';
   mapBtn.rel = 'noopener noreferrer';
   mapBtn.className = 'btn btn-outline-gold location-btn';
   mapBtn.innerHTML = `${getIcon('map')} View on Maps`;
+  
+  const mapEmbedUrl = 'https://www.google.com/maps?q=Hanuman%20Nagar%2C%20Bypass%20Road%2C%20Near%20New%20Bus%20Stand%2C%20Jaso%2C%20Buxar%2C%20Bihar%20802101&output=embed';
   
   section.innerHTML = `
     <div class="container">
@@ -48,13 +50,16 @@ export function createLocationSection() {
           </div>
         </div>
         <div class="location-map fade-in">
-          <div class="map-placeholder" aria-label="Map showing Aura Wellness Spa location in Buxar, Bihar">
-            <div class="map-placeholder-content">
-              ${getIcon('map')}
-              <p>Map Preview</p>
-              <span>${businessConfig.location}</span>
-            </div>
-          </div>
+          <iframe
+            src="${mapEmbedUrl}"
+            width="100%"
+            height="100%"
+            style="border: 0; border-radius: var(--radius-xl);"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Luxury Spa & Saloon Location"
+          ></iframe>
         </div>
       </div>
     </div>

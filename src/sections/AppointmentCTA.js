@@ -16,7 +16,7 @@ export function createAppointmentCTASection() {
   });
   
   const callBtn = document.createElement('a');
-  callBtn.href = `tel:${businessConfig.phone.replace(/\s/g, '')}`;
+  callBtn.href = `tel:${businessConfig.callPhone.replace(/\s/g, '')}`;
   callBtn.className = 'btn btn-secondary btn-lg appointment-cta-btn';
   callBtn.innerHTML = `${getIcon('phone')} Call Now`;
   
