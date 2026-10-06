@@ -1,4 +1,4 @@
-import { getIcon, createIcon } from './Icon.js';
+import { getIcon } from './Icon.js';
 import { businessConfig, getWhatsAppUrl } from '../config/business.js';
 import { smoothScroll } from '../utils/helpers.js';
 
@@ -28,13 +28,14 @@ export function createHeader() {
           ${getIcon('whatsapp')}
           <span class="header-btn-text">Book Appointment</span>
         </a>
-        <button class="header-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <button class="header-menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu" type="button">
           <span class="menu-icon">${getIcon('menu')}</span>
         </button>
       </div>
     </div>
     
     <div id="mobile-menu" class="mobile-menu" hidden>
+      <div class="mobile-menu-overlay" aria-hidden="true"></div>
       <nav class="mobile-nav" aria-label="Mobile navigation">
         <ul class="mobile-nav-list">
           <li><a href="#hero" class="mobile-nav-link">Home</a></li>
@@ -51,28 +52,83 @@ export function createHeader() {
       </nav>
     </div>
   `;
-  
+
+  return header;
+}
+
+export function initHeader() {
+  const header = createHeader();
+  document.body.prepend(header);
+  initMobileMenu(header);
+  initHeaderScroll(header);
+  return header;
+}
+
+function initMobileMenu(header) {
   const menuBtn = header.querySelector('.header-menu-btn');
   const mobileMenu = header.querySelector('#mobile-menu');
+  const menuIcon = menuBtn.querySelector('.menu-icon');
+  const overlay = mobileMenu.querySelector('.mobile-menu-overlay');
+  const navLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
   
-  menuBtn.addEventListener('click', () => {
+  if (!menuBtn || !mobileMenu || !menuIcon) return;
+
+  let wasScrolling = false;
+
+  function openMenu() {
+    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.setAttribute('aria-label', 'Close navigation');
+    menuIcon.innerHTML = getIcon('close');
+    mobileMenu.hidden = false;
+    document.body.style.overflow = 'hidden';
+    wasScrolling = document.body.style.overflow === 'hidden';
+  }
+
+  function closeMenu() {
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Open navigation');
+    menuIcon.innerHTML = getIcon('menu');
+    mobileMenu.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  function toggleMenu() {
     const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('aria-expanded', !isOpen);
-    mobileMenu.hidden = isOpen;
-    document.body.style.overflow = isOpen ? '' : 'hidden';
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
-  
-  mobileMenu.querySelectorAll('a').forEach(link => {
+
+  overlay.addEventListener('click', closeMenu);
+
+  navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      menuBtn.setAttribute('aria-expanded', 'false');
-      mobileMenu.hidden = true;
-      document.body.style.overflow = '';
+      closeMenu();
     });
   });
-  
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+    }
+  });
+
+  mobileMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+}
+
+function initHeaderScroll(header) {
   let lastScroll = 0;
   const headerHeight = 72;
-  
+
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
@@ -90,12 +146,4 @@ export function createHeader() {
     
     lastScroll = currentScroll;
   }, { passive: true });
-  
-  return header;
-}
-
-export function initHeader() {
-  const header = createHeader();
-  document.body.prepend(header);
-  return header;
 }
