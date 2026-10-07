@@ -44,7 +44,7 @@ function initSEO() {
   
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'DaySpa',
     name: businessConfig.name,
     description: businessConfig.description,
     address: {
@@ -55,22 +55,47 @@ function initSEO() {
       postalCode: '802101',
       addressCountry: 'IN'
     },
-    telephone: businessConfig.phone,
-    url: window.location.href,
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '10:00',
-      closes: '21:00'
-    },
-    priceRange: '₹₹',
-    image: businessConfig.seo.ogImage
+    telephone: businessConfig.callPhone,
+    url: 'https://luxuryspasaloon.com/',
+    logo: 'https://luxuryspasaloon.com/assets/images/Logo.png',
+    image: businessConfig.seo.ogImage,
+    sameAs: [
+      businessConfig.instagram,
+      businessConfig.facebook
+    ],
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '11:00',
+        closes: '21:00'
+      }
+    ],
+    priceRange: '₹₹'
   };
   
   const script = document.createElement('script');
   script.type = 'application/ld+json';
   script.textContent = JSON.stringify(structuredData);
   document.head.appendChild(script);
+  
+  const faqStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: businessConfig.faq.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  };
+  
+  const faqScript = document.createElement('script');
+  faqScript.type = 'application/ld+json';
+  faqScript.textContent = JSON.stringify(faqStructuredData);
+  document.head.appendChild(faqScript);
 }
 
 function initScrollAnimations() {

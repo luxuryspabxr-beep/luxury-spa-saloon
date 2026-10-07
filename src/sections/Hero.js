@@ -30,7 +30,7 @@ export function createHeroSection() {
       <div class="hero-content">
         <div class="hero-text fade-in">
           <p class="hero-location">${getIcon('location')} ${businessConfig.location}</p>
-          <h1 id="hero-title" class="hero-title">${businessConfig.tagline}</h1>
+          <h1 id="hero-title" class="hero-title">Luxury Spa & Saloon in Buxar, Bihar</h1>
           <p class="hero-description">${businessConfig.description}</p>
           <div class="hero-trust">
             ${businessConfig.trustBadges.map(badge => `

@@ -4,7 +4,7 @@ export const businessConfig = {
   description: "Luxury Spa & Saloon is a premium local wellness and beauty destination in Buxar, Bihar, offering a relaxing environment and professional spa and saloon services.",
   location: "Buxar, Bihar",
   address: "Hanuman Nagar, Bypass Road, Near New Bus Stand, Jaso, Buxar, Bihar – 802101",
-  phone: "+91 9942467567",
+  phone: "+91 9942469609",
   callPhone: "+91 9942469609",
   whatsapp: "919942467567",
   whatsappMessage: "Hi Luxury Spa & Saloon, I would like to book an appointment.\n\nService: ______\nPreferred Date: ______\nPreferred Time: ______",
@@ -15,9 +15,9 @@ export const businessConfig = {
   googleMaps: "https://maps.google.com/?q=Hanuman+Nagar+Bypass+Road+Near+New+Bus+Stand+Jaso+Buxar+Bihar+802101",
   coordinates: { lat: 25.5625, lng: 83.9745 },
   seo: {
-    title: "Luxury Spa & Saloon | Spa & Saloon in Buxar, Bihar",
-    description: "Luxury Spa & Saloon - premium spa and saloon services in Buxar, Bihar. Experience professional wellness and beauty treatments. Book your appointment on WhatsApp.",
-    ogImage: "/assets/images/og-image.jpg"
+    title: "Luxury Spa & Saloon | Spa & Salon in Buxar, Bihar",
+    description: "Luxury Spa & Saloon in Buxar, Bihar offers relaxing spa, massage, wellness, facial and salon services. Visit us near New Bus Stand, Jaso, Buxar.",
+    ogImage: "https://luxuryspasaloon.com/assets/images/og-image.jpg"
   },
   trustBadges: [
     "Professional Service",

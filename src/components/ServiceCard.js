@@ -17,7 +17,7 @@ export function createServiceCard(service) {
   
   card.innerHTML = `
     <div class="service-card-image">
-      <img src="${service.image}" alt="" loading="lazy" width="400" height="300">
+      <img src="${service.image}" alt="${service.name} at Luxury Spa & Saloon in Buxar" loading="lazy" width="400" height="300">
       <div class="service-card-overlay"></div>
     </div>
     <div class="service-card-content">
