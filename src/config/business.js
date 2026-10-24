@@ -15,8 +15,8 @@ export const businessConfig = {
   googleMaps: "https://maps.google.com/?q=Hanuman+Nagar+Bypass+Road+Near+New+Bus+Stand+Jaso+Buxar+Bihar+802101",
   coordinates: { lat: 25.5625, lng: 83.9745 },
   seo: {
-    title: "Luxury Spa & Saloon | Spa & Salon in Buxar, Bihar",
-    description: "Luxury Spa & Saloon in Buxar, Bihar offers relaxing spa, massage, wellness, facial and salon services. Visit us near New Bus Stand, Jaso, Buxar.",
+    title: "Luxury Spa & Saloon in Buxar, Bihar | Official Website",
+    description: "Visit Luxury Spa & Saloon in Buxar, Bihar. Explore our spa services, location, opening hours and contact details. Book your appointment today.",
     ogImage: "https://luxuryspasaloon.com/assets/images/og-image.jpg"
   },
   trustBadges: [
@@ -37,7 +37,8 @@ export const businessConfig = {
       price: 999,
       duration: "60 min",
       image: "/assets/images/gallery/imgn 2.png",
-      category: "massage"
+      category: "massage",
+      slug: "relaxation-massage-buxar"
     },
     {
       id: "aroma-wellness",
@@ -46,7 +47,8 @@ export const businessConfig = {
       price: 1299,
       duration: "60 min",
       image: "/assets/images/gallery/img3.png",
-      category: "wellness"
+      category: "wellness",
+      slug: "aroma-wellness-buxar"
     },
     {
       id: "body-spa",
@@ -55,7 +57,8 @@ export const businessConfig = {
       price: 1499,
       duration: "75 min",
       image: "/assets/images/gallery/img4.png",
-      category: "body"
+      category: "body",
+      slug: "body-spa-buxar"
     },
     {
       id: "facial-glow",
@@ -64,7 +67,8 @@ export const businessConfig = {
       price: 899,
       duration: "45 min",
       image: "/assets/images/gallery/img5.png",
-      category: "facial"
+      category: "facial",
+      slug: "facial-glow-buxar"
     }
   ],
   features: [
@@ -111,21 +115,21 @@ export const businessConfig = {
       title: "Spa Entrance",
       image: "/assets/images/gallery/spa img 1.png",
       thumb: "/assets/images/gallery/spa img 1.png",
-      alt: "Luxury Spa & Saloon entrance"
+      alt: "Luxury Spa & Saloon entrance in Buxar"
     },
     {
       id: "reception",
       title: "Reception Area",
       image: "/assets/images/gallery/spa img 1.png",
       thumb: "/assets/images/gallery/spa img 1.png",
-      alt: "Warm and welcoming reception"
+      alt: "Warm and welcoming reception area"
     },
     {
       id: "interior",
       title: "Spa Interior",
       image: "/assets/images/gallery/spa img 1.png",
       thumb: "/assets/images/gallery/spa img 1.png",
-      alt: "Calm and elegant interior"
+      alt: "Calm and elegant spa interior"
     },
     {
       id: "treatment-room",
@@ -240,4 +244,8 @@ export function getWhatsAppUrl(message = "") {
 export function getWhatsAppUrlForService(serviceName) {
   const message = `Hi, I would like to book an appointment at ${businessConfig.name}.\n\nService: ${serviceName}\nPreferred Date: ______\nPreferred Time: ______`;
   return getWhatsAppUrl(message);
+}
+
+export function getServiceUrl(serviceSlug) {
+  return `https://luxuryspasaloon.com/${serviceSlug}/`;
 }

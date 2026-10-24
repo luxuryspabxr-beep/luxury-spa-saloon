@@ -20,7 +20,6 @@ export function createReviewCard(review, index = 0) {
       <cite class="review-card-author">— ${review.author}</cite>
       ${review.verified ? '<span class="review-verified" aria-label="Verified review">✓ Verified</span>' : ''}
     </footer>
-    <div class="review-card-disclaimer" aria-hidden="true">Demo review</div>
   `;
   
   return card;

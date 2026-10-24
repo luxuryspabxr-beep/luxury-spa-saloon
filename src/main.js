@@ -42,11 +42,24 @@ function initSEO() {
   const twitterCard = document.querySelector('meta[name="twitter:card"]');
   if (twitterCard) twitterCard.setAttribute('content', 'summary_large_image');
   
-  const structuredData = {
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twitterTitle) twitterTitle.setAttribute('content', businessConfig.seo.title);
+  
+  const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twitterDesc) twitterDesc.setAttribute('content', businessConfig.seo.description);
+  
+  const twitterImage = document.querySelector('meta[name="twitter:image"]');
+  if (twitterImage) twitterImage.setAttribute('content', businessConfig.seo.ogImage);
+
+  // LocalBusiness structured data
+  const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'DaySpa',
     name: businessConfig.name,
     description: businessConfig.description,
+    url: 'https://luxuryspasaloon.com/',
+    telephone: businessConfig.callPhone,
+    email: businessConfig.email,
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Hanuman Nagar, Bypass Road, Near New Bus Stand, Jaso',
@@ -55,8 +68,11 @@ function initSEO() {
       postalCode: '802101',
       addressCountry: 'IN'
     },
-    telephone: businessConfig.callPhone,
-    url: 'https://luxuryspasaloon.com/',
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: businessConfig.coordinates.lat,
+      longitude: businessConfig.coordinates.lng
+    },
     logo: 'https://luxuryspasaloon.com/assets/images/Logo.png',
     image: businessConfig.seo.ogImage,
     sameAs: [
@@ -71,14 +87,71 @@ function initSEO() {
         closes: '21:00'
       }
     ],
-    priceRange: '₹₹'
+    priceRange: '₹₹',
+    areaServed: {
+      '@type': 'City',
+      name: 'Buxar',
+      containedInPlace: {
+        '@type': 'State',
+        name: 'Bihar',
+        containedInPlace: {
+          '@type': 'Country',
+          name: 'India'
+        }
+      }
+    },
+    hasMap: businessConfig.googleMaps,
+    serviceArea: {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: businessConfig.coordinates.lat,
+        longitude: businessConfig.coordinates.lng
+      },
+      geoRadius: '20000'
+    }
   };
-  
-  const script = document.createElement('script');
-  script.type = 'application/ld+json';
-  script.textContent = JSON.stringify(structuredData);
-  document.head.appendChild(script);
-  
+
+  const lbScript = document.createElement('script');
+  lbScript.type = 'application/ld+json';
+  lbScript.textContent = JSON.stringify(localBusinessSchema);
+  document.head.appendChild(lbScript);
+
+  // Service schema for each service
+  businessConfig.services.forEach(service => {
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: service.name,
+      description: service.description,
+      provider: {
+        '@type': 'DaySpa',
+        name: businessConfig.name,
+        url: 'https://luxuryspasaloon.com/'
+      },
+      areaServed: {
+        '@type': 'City',
+        name: 'Buxar'
+      },
+      offers: {
+        '@type': 'Offer',
+        name: service.name,
+        description: service.description,
+        price: service.price,
+        priceCurrency: 'INR',
+        availability: 'https://schema.org/InStock',
+        url: `https://luxuryspasaloon.com/${service.slug}/`
+      },
+      serviceType: service.category
+    };
+
+    const svcScript = document.createElement('script');
+    svcScript.type = 'application/ld+json';
+    svcScript.textContent = JSON.stringify(serviceSchema);
+    document.head.appendChild(svcScript);
+  });
+
+  // FAQ structured data
   const faqStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -91,11 +164,51 @@ function initSEO() {
       }
     }))
   };
-  
+
   const faqScript = document.createElement('script');
   faqScript.type = 'application/ld+json';
   faqScript.textContent = JSON.stringify(faqStructuredData);
   document.head.appendChild(faqScript);
+
+  // WebSite schema with SearchAction
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: businessConfig.name,
+    url: 'https://luxuryspasaloon.com/',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://luxuryspasaloon.com/?search={search_term_string}'
+      },
+      'query-input': 'required name=search_term_string'
+    }
+  };
+
+  const wsScript = document.createElement('script');
+  wsScript.type = 'application/ld+json';
+  wsScript.textContent = JSON.stringify(websiteSchema);
+  document.head.appendChild(wsScript);
+
+  // BreadcrumbList schema (homepage)
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://luxuryspasaloon.com/'
+      }
+    ]
+  };
+
+  const bcScript = document.createElement('script');
+  bcScript.type = 'application/ld+json';
+  bcScript.textContent = JSON.stringify(breadcrumbSchema);
+  document.head.appendChild(bcScript);
 }
 
 function initScrollAnimations() {

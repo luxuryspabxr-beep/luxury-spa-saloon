@@ -17,7 +17,6 @@ export function createReviewsSection() {
       <div class="reviews-wrapper" role="list" aria-label="Customer reviews">
         ${reviewCards.outerHTML}
       </div>
-      <p class="reviews-disclaimer fade-in">* These are demo reviews for demonstration purposes. They will be replaced with genuine customer reviews.</p>
     </div>
   `;
   
